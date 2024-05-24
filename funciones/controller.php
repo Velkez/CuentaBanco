@@ -13,9 +13,17 @@ function registrarUsuario($nombre, $email, $password) {
     $stmt->bindParam(':password', $passwordHash);
  
     $stmt->execute();
-    
- }
 
+    //Crear cuenta del usuario
+    $idUsuario = $db->lastInsertId();
+    $cuenta = 0;
+    $sqlCuenta = "INSERT INTO cuenta (fk_usuario, saldo) VALUES (:id, :cuenta)";
+    $stmt = $db->prepare($sqlCuenta);
+    $stmt->bindParam(':id', $idUsuario);
+    $stmt->bindParam(':cuenta', $cuenta);
+    $stmt->execute();
+ }
+ 
 function validarInicioSesion($email, $password) {
     $db = conectar();
 

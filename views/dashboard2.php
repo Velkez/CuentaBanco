@@ -32,7 +32,7 @@ if ($resultadoUsuario) {
 
 if (isset($_POST['cerrar_sesion'])) {
     session_unset();
-    session_destroy();
+    // session_destroy();
     header("Location: ../index.php");
     exit();
 }
@@ -63,7 +63,7 @@ if (isset($_POST['cerrar_sesion'])) {
                             <div class="col-lg-7">
                                 <div class="card border rounded-lg mt-5">
                                     <div class="card-header">
-                                        <h3 class="text-center font-weight-light my-4">Bienvenido <?php echo $nombreUsuario; ?></h3>
+                                        <h3 class="text-center font-weight-light my-4">Bienvenido <?php echo $nombreUsuario;?></h3>
                                     </div>
                                     <div class="card-body">
                                         <form>
